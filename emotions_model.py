@@ -8,7 +8,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import (
     Conv2D, MaxPooling2D,
     GlobalAveragePooling2D,
-    Dense, Dropout, Input,Flatten
+    Dense, Dropout, Input
 )
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
@@ -53,10 +53,10 @@ model = Sequential([
 
     Conv2D(32, 3, activation='relu', padding='same'),
     Conv2D(64, 3, activation='relu', padding='same'),
-    MaxPooling2D(2),
+    MaxPooling2D(pool_size=2,strides=2),
 
     Conv2D(128, 3, activation='relu', padding='same'),
-    MaxPooling2D(2),
+    MaxPooling2D(pool_size=2,strides=2),
 
     Conv2D(128, 3, activation='relu', padding='same'),
 
@@ -90,5 +90,6 @@ model.fit(
 model.summary()
 model.save(model_path)
 print(f'Model {model_path} Saved Successfully!')
+
 
 # 378/378 ━━━━━━━━━━━━━━━━━━━━ 144s 382ms/step - accuracy: 0.6610 - loss: 0.8680 - val_accuracy: 0.6591 - val_loss: 0.8602

@@ -10,12 +10,12 @@ from tensorflow.keras.models import load_model
 
 st.set_page_config(page_title="Upload Photo + Predict", page_icon="📷")
 
-st.title("🧠 Cat/Dog Prediction")
+st.title("Do you wear a Mask? SO, How do you feel today? Prediction")
 st.write("Take a photo or upload one, then run it through the CNN model and optionally save it")
 
 # ---------- Settings ----------
-MODEL_PATH_MASK = r'C:\Users\USER\Desktop\Study\ML_True\Project_3_CNN_2\model_creation\mask_new_model2_cnn.keras'
-MODEL_PATH_EMOTIONS = r'/Project_3_CNN_2/full_project/emotions_model3_cnn_5.keras'
+MODEL_PATH_MASK = r'C:\Users\USER\Desktop\Study\ML_True\Project_3_CNN_2\full_project\mask_new_model3_cnn.keras'
+MODEL_PATH_EMOTIONS = r'C:\Users\USER\Desktop\Study\ML_True\Project_3_CNN_2\full_project\emotions_model3_cnn_5.keras'
 IMG_SIZE = (64, 64)  # must match training target_size
 #THRESHOLD = 0.5
 
@@ -84,8 +84,8 @@ def prediction_for_cnn(x1,model1,mode):
     emotions_classes = ['angry', 'happy', 'neutral', 'sad', 'surprise']
     mask_classes = ['incorrect mask','with mask','without mask']
 
-    mask_conf = 0.33
     emotions_conf = 0.20
+    mask_conf = 0.33
 
     classes = mask_classes if mode == 'mask' else emotions_classes
 

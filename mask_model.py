@@ -1,5 +1,3 @@
-
-
 #  The Mask diagnoser have to predict 3 Classes: with mask,without mask,incorrect mask.
 
 import os
